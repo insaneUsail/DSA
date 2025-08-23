@@ -24,13 +24,12 @@ public:
             prev=slow;
             slow = temp;
         }
-        ListNode* first = head;
-        ListNode* second = prev;
-        while (second) {
-            if (first->val != second->val)
+        
+        while (prev) {
+            if (head->val != prev->val)
                 {return false;}
-            first = first->next;
-            second = second->next;
+            head=head->next;
+            prev=prev->next;
         }
         return true;
     }
