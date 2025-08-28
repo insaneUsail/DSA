@@ -12,18 +12,16 @@
  */
 class Solution {
 public:
+    void dfs(TreeNode* root, vector<int>& v) {
+        if (!root) return;
+        v.push_back(root->val);
+        dfs(root->left, v);
+        dfs(root->right, v);
+    }
+
     vector<int> preorderTraversal(TreeNode* root) {
-        if (root == NULL)
-            return {};
         vector<int> v;
-            v.push_back(root->val);
-
-        vector<int> left = preorderTraversal(root->left);
-        vector<int> right = preorderTraversal(root->right);
-
-        v.insert(v.end(), left.begin(), left.end());
-        v.insert(v.end(), right.begin(), right.end());
-
+        dfs(root, v);
         return v;
     }
 };
