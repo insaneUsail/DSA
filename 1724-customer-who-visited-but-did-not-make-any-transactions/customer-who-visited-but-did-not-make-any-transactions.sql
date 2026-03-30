@@ -4,3 +4,4 @@ LEFT JOIN Transactions t
     ON v.visit_id = t.visit_id
 WHERE t.visit_id IS NULL
 group by v.customer_id
+order by count_no_trans desc
